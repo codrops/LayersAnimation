@@ -1,4 +1,4 @@
-# Image Layers Animation with Clip-Path
+# Image Layer Animations with Clip-Path
 
 Some ideas for speedy page transition animations with layered images using clip-path.
 
