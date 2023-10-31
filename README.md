@@ -2,7 +2,7 @@
 
 Some ideas for speedy page transition animations with layered images using clip-path.
 
-![Image Title](https://generative-placeholders.glitch.me/image?width=800&height=600")
+![Image Title](https://tympanus.net/codrops/wp-content/uploads/2023/10/cliplayers_feat.jpg)
 
 [Article on Codrops](https://tympanus.net/codrops/?p=74227)
 
@@ -17,8 +17,6 @@ Run this demo on a [local server](https://developer.mozilla.org/en-US/docs/Learn
 - Images generated with [Midjourney](https://midjourney.com)
 
 ## Misc
-
-Follow *Author*: [Twitter](), [Instagram](), [GitHub]() 
 
 Follow Codrops: [Twitter](http://www.twitter.com/codrops), [Facebook](http://www.facebook.com/codrops), [GitHub](https://github.com/codrops), [Instagram](https://www.instagram.com/codropsss/)
 

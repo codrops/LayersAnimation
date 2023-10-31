@@ -3,6 +3,9 @@ import { preloadImages } from '../utils.js'; // Utility function for preloading 
 import { Item } from '../item.js'; // Item class
 import { Content } from '../content.js'; // Content class
 
+// frame element
+const frameElement = document.querySelector('.frame');
+
 // Selecting all elements with class 'layers__item' and converting NodeList to an array
 const DOMItems = [...document.querySelectorAll('.layers__item')];
 const items = []; // Array to store instances of the Item class
@@ -47,9 +50,9 @@ const animationSettings = {
 };
 
 // Event listener for click events on the document
-document.addEventListener('click', () => {
+document.addEventListener('click', event => {
     // Check if the timeline is currently active (running)
-    if (tl && tl.isActive()) {
+    if (tl && tl.isActive() || frameElement.contains(event.target)) {
         return false; // Don't start a new animation
     }
 
