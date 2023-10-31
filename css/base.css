@@ -1,0 +1,348 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 14px;
+	--color-text: #000;
+	--color-bg: #f07547;
+	--color-link: rgb(0 0 0 / 70%);
+	--color-link-hover: #000;
+	--layer-width: 100vw;
+	--layer-height: 100vh;
+	--layer-radius: 0;
+	--page-padding: 1rem;
+}
+
+.demo-2 {
+	--color-bg: #94c3c1;
+}
+
+.demo-3 {
+	--layer-width: 98vw;
+	--layer-height: 96vh;
+	--layer-radius: 20px;
+	--color-bg: #f4b3b9;
+}
+
+.demo-4 {
+	--layer-width: 98vw;
+	--layer-height: 96vh;
+	--color-bg: #b3f4d7;
+}
+
+.demo-5 {
+	--color-bg: #d4b3f4;
+}
+
+.demo-6 {
+	--color-bg: #f4f3b3;
+}
+
+.demo-7 {
+	--color-bg: #f1b454;
+	--layer-width: 100vw;
+	--layer-height: 100vh;
+}
+
+body {
+	margin: 0;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	font-family: "alfabet",-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	width: 100%;
+	min-height: 100vh;
+    min-height: -webkit-fill-available;
+	overflow: hidden;
+}
+
+/* Page Loader */
+.js .loading::before,
+.js .loading::after {
+	content: '';
+	position: fixed;
+	z-index: 1000;
+}
+
+.js .loading::before {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-bg);
+}
+
+.js .loading::after {
+	top: 50%;
+	left: 50%;
+	width: 60px;
+	height: 60px;
+	margin: -30px 0 0 -30px;
+	border-radius: 50%;
+	opacity: 0.4;
+	background: var(--color-link);
+	animation: loaderAnim 0.7s linear infinite alternate forwards;
+
+}
+
+@keyframes loaderAnim {
+	to {
+		opacity: 1;
+		transform: scale3d(0.5,0.5,1);
+	}
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+	outline: none;
+	cursor: pointer;
+}
+
+a:hover {
+	color: var(--color-link-hover);
+	outline: none;
+}
+
+/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+a:focus {
+	/* Provide a fallback style for browsers
+	 that don't support :focus-visible */
+	outline: none;
+	background: lightgrey;
+}
+
+a:focus:not(:focus-visible) {
+	/* Remove the focus indicator on mouse-focus for browsers
+	 that do support :focus-visible */
+	background: transparent;
+}
+
+a:focus-visible {
+	/* Draw a very noticeable focus style for
+	 keyboard-focus on browsers that do support
+	 :focus-visible */
+	outline: 2px solid red;
+	background: transparent;
+}
+
+main {
+	display: grid;
+	grid-template-areas: 'main';
+	width: 100%;
+	height: 100vh;
+}
+
+main::before {
+	position: fixed;
+	top: 30vh;
+	right: 4vw;
+	content: 'Click da body';
+	background: url(../img/star.svg) no-repeat 50% 50%;
+	background-size: 100%;
+	font-size: 2vmax;
+	padding: 10vmax;
+	width: 30vmax;
+	height: 30vmax;
+	text-align: center;
+	line-height: 0.8;
+	display: grid;
+	place-items: center;
+	transform: rotate(12.5deg);
+	font-family: "gabriella", sans-serif;
+	text-transform: uppercase;
+	font-weight: 900;
+}
+
+.unbutton {
+	background: none;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	font: inherit;
+	cursor: pointer;
+}
+
+.unbutton:focus {
+	outline: none;
+}
+
+.frame {
+	grid-area: main;
+	position: relative;
+	padding: var(--page-padding);
+	display: grid;
+	z-index: 1000;
+	grid-template-columns: auto 1fr;
+	grid-template-areas: 'title title' 'prev back' 'sponsor sponsor' 'demos demos';
+	grid-row-gap: 1rem;
+	grid-column-gap: 2rem;
+	pointer-events: none;
+	align-content: start;
+}
+
+.frame a {
+	pointer-events: auto;
+}
+
+.frame__title {
+	grid-area: title;
+	font-size: inherit;
+	margin: 0;
+}
+
+.frame__back {
+	grid-area: back;
+	justify-self: start;
+}
+
+.frame__prev {
+	grid-area: prev;
+	justify-self: start;
+}
+
+.frame__demos {
+	grid-area: demos;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	align-self: start;
+	justify-self: start;
+	flex-wrap: wrap;
+}
+
+.frame__demos span {
+	margin-right: 1rem;
+	width: 100%;
+}
+
+.frame__demo {
+	width: 3rem;
+	aspect-ratio: 1;
+	height: auto;
+	display: block;
+	flex: none;
+	display: grid;
+	place-items: center;
+}
+
+.frame__demo--current,
+.frame__demo--current:focus,
+.frame__demo--current:hover {
+	background: var(--color-link-hover);
+	color: var(--color-bg);
+}
+
+body #cdawrap {
+    justify-self: start;
+}
+
+.content {
+	grid-area: main;
+	display: grid;
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	grid-template-areas: 'content';
+}
+
+.content__inner {
+	grid-area: content;
+	width: 100%;
+	display: grid;
+	grid-template-areas: 'text' 'headline';
+	padding: 2rem var(--page-padding) var(--page-padding);
+	grid-template-rows: 1fr auto;
+	will-change: transform;
+}
+
+.hidden {
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.content__inner h2 {
+	grid-area: headline;
+	font-size: clamp(2rem, 10vw,13rem);
+	font-family: "gabriella", sans-serif;
+	text-transform: uppercase;
+	font-weight: 900;
+	margin: 0;
+	line-height: 1;
+}
+
+.content__inner p {
+	grid-area: text;
+	font-size: clamp(1rem,3vw,2.5rem);
+	line-height: 1.2;
+	font-weight: 300;
+	align-self: end;
+}
+
+.layers {
+	grid-area: content;
+	align-self: center;
+	justify-self: center;
+	flex: none;
+	position: relative;
+	width: var(--layer-width);
+	height: var(--layer-height);
+}
+
+.layers__item,
+.layers__item-img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.layers__item {
+	overflow: hidden;
+	opacity: 0;
+	will-change: clip-path;
+	border-radius: var(--layer-radius);
+}
+
+.layers__item-img {
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+@media screen and (min-width: 53em) {
+	:root {
+		--page-padding: 3rem;
+	}
+	.frame {
+		height: 100vh;
+		width: 100%;
+		grid-template-columns: auto auto auto 1fr;
+		grid-template-rows: auto auto;
+		grid-template-areas: 'title prev back sponsor' 'demos demos demos demos';
+		align-content: space-between;
+		justify-items: start;
+		grid-gap: 2rem;
+	}
+	.frame__demos {
+		padding-left: 2rem;
+		border: 1px solid;
+		border-radius: 2rem;
+	}
+	.frame__demos span {
+		width: auto;
+	}
+	.content {
+		height: 100vh;
+	}
+	.content__inner {
+		padding: 2rem var(--page-padding) calc(var(--page-padding) + 15vh);
+	}
+	main::before {
+		top: 4vh;
+	}
+}
